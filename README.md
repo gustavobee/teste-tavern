@@ -36,10 +36,10 @@ O servidor estará em execução e acessível pelo navegador.
 Abra outro terminal para executar os testes enquanto o servidor está em execução.
 
 ```bash
-py.test test_minimal.tavern.yaml -v
+py.test test_server.tavern.yaml -v
 ```
 
-Certifique-se de que o arquivo `test_minimal.tavern.yaml` esteja configurado corretamente para testar as rotas da sua API.
+Certifique-se de que o arquivo `test_server.tavern.yaml` esteja configurado corretamente para testar as rotas da sua API.
 
 ---
 

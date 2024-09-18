@@ -5,16 +5,16 @@ test_name: Certificando que o servidor dobre o número corretamente
 stages:
   - name: Certifique-se de que o número foi retornado corretamente
     request:
-      url: http://localhost:5000/double
+      url: http://localhost:5000/dobra
       json:
-        number: 5
+        numero: 5
       method: POST
       headers:
         content-type: application/json
     response:
       status_code: 200
       json:
-        double: 10
+        dobro: 10
 
 ---
 
@@ -23,20 +23,20 @@ test_name: Verifica como inputs inválidos são lidados
 stages:
   - name: Certifique-se que números inválidos não causem erro
     request:
-      url: http://localhost:5000/double
+      url: http://localhost:5000/dobra
       json:
-        number: dkfsd
+        numero: dkfsd
       method: POST
       headers:
         content-type: application/json
     response:
       status_code: 400
       json:
-        error: a number was not passed
+        error: um número não foi passado
 
   - name: Certifique-se que retorne um erro se um número não for passado 
     request:
-      url: http://localhost:5000/double
+      url: http://localhost:5000/dobra
       json:
         wrong_key: 5
       method: POST
@@ -45,7 +45,7 @@ stages:
     response:
       status_code: 400
       json:
-        error: no number passed
+        error: nenhum número foi passado
 
 ---
 
@@ -54,16 +54,16 @@ test_name: Lidando com números negativos corretamente
 stages:
   - name: Tendo certeza que dobre número negativo
     request:
-      url: http://localhost:5000/double
+      url: http://localhost:5000/dobra
       json:
-        number: -5
+        numero: -5
       method: POST
       headers:
         content-type: application/json
     response:
       status_code: 200
       json:
-        double: -10
+        dobro: -10
 
 
 --- 
@@ -73,13 +73,13 @@ test_name: Lidando com zero corretamente
 stages:
   - name: Tendo certeza que dobre o zero
     request:
-      url: http://localhost:5000/double
+      url: http://localhost:5000/dobra
       json:
-        number: 0
+        numero: 0
       method: POST
       headers:
         content-type: application/json
     response:
       status_code: 200
       json:
-        double: 0
+        dobro: 0
